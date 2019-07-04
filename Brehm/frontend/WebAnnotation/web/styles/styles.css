@@ -1,0 +1,130 @@
+/* Copyright (c) 2017, oliver. All rights reserved. Use of this source code
+   is governed by a BSD-style license that can be found in the LICENSE file. */
+
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/css?family=Material+Icons);
+
+body {
+  margin: 0 auto;
+  padding: 2vw;
+  margin-top: 4em;
+
+  font-size: 18px;
+}
+
+.delete-button {
+  color: indianred;
+  margin-left: 0.5em;
+}
+
+.delete-button:hover {
+  color: red;
+}
+
+* {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+
+.bordered {
+  border: dotted 2px #4DE8D0;
+  padding: 1em;
+  margin: 0.2em;
+}
+
+.warning-box {
+  border: dotted 1px indianred;
+  background-color: #ffA090;
+  padding: 0.6em;
+  margin: 1em;
+}
+
+a {
+  color: #5491FF;
+}
+
+a:hover {
+  color: #6DCDF8;
+  cursor: pointer;
+}
+
+.link {
+  color: #5491FF;
+  cursor: pointer;
+}
+
+.link:hover {
+  color: #6DCDF8;
+}
+
+/* color scheme */
+.c-p1 {
+  color: #5491FF;
+}
+
+.c-p2 {
+ color: #6DCDF8;
+}
+
+.c-light {
+  color: #FBFEFF;
+}
+
+.c-s {
+  color: #4DE8D0;
+}
+
+.c-alert {
+  color: indianred;
+}
+
+/* color scheme background */
+.bg-p1 {
+  background-color: #5491FF;
+}
+
+.bg-p2 {
+  background-color: #6DCDF8;
+}
+
+.bg-light {
+  background-color: #FBFEFF;
+}
+
+.bg-s {
+  background-color: #4DE8D0;
+}
+
+.bg-alert {
+  background-color: indianred;
+}
+
+@media print {
+  body *, .navbar {
+    display: none;
+  }
+
+  .textPreview, my-app, text-analysis, text-preview {
+    display: block;
+  }
+
+  .annotationText {
+    display: block;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 15px;
+  }
+
+  .print-text {
+    display: inline-block;
+  }
+
+  .notFound, .number {
+    background-color: white;
+    text-decoration: none;
+  }
+}

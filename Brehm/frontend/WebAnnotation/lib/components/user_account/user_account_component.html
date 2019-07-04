@@ -1,0 +1,40 @@
+<div class="container" *ngIf="!userAccountService.loggedIn">
+    <user-login></user-login>
+    <br>
+    <a [routerLink]="['UserRegister']">Neues Konto erstellen</a>
+</div>
+
+<div class="container" *ngIf="userAccountService.loggedIn">
+    <div class="bordered">
+        <h2>Hallo {{userFullName()}} ({{userEmail()}})!</h2>
+        <div *ngIf="userAccountService.isExpert || userAccountService.isAdmin" style="margin: 1em">
+            <span class="userTag" *ngIf="userAccountService.isAdmin">Administrator</span>
+            <span class="userTag" *ngIf="userAccountService.isExpert">Experte</span>
+            <br>
+        </div>
+        Hier kannst Du gespeicherte Texte, manuelle Wörterbuch Einträge und Dein Konto verwalten.
+    </div>
+    <br>
+
+    <user-textlist></user-textlist>
+    <br>
+
+    <user-wordlist></user-wordlist>
+    <br>
+
+    <div class="bordered">
+        <h2>Benutzerkonto</h2>
+
+        <material-button raised
+                         class="c-alert"
+                         (trigger)="logout()">
+            Logout
+        </material-button>
+
+        <material-button raised
+                         class="c-alert"
+                         (trigger)="deleteAccount()">
+            Konto löschen
+        </material-button>
+    </div>
+</div>

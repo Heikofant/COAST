@@ -9,3 +9,4 @@ pubspec.lock
 doc/api/
 
 .dart_tool/
+.idea/

@@ -1,0 +1,49 @@
+<div style="letter-spacing: 0px; cursor: default">
+    <button type="button" class="close delete-button" aria-label="Popup schließen" (click)="closePopup()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+
+    <p style="text-decoration: underline"><strong>{{word.text}}</strong></p>
+
+    <material-toggle [(checked)]="isAnnotatedToggleChecked"
+                     label="{{switchLang('Annotieren')}}"
+                     (click)="toggleAnnotated()">
+
+    </material-toggle>
+    <br><br>
+
+    <div *ngIf="word.isAnnotated()">
+        {{switchLang('Betonungsmuster')}}:
+        <ul class="segmentationList">
+            <li *ngFor="let s of word.syllables" class="segmentationList-item segmentationList-small segmentationList-hover {{s.stressed ? 'segmentationList-active' : ''}}" (click)="syllableSelected(s)">{{s.text}}</li>
+            | <li class="segmentationList-item segmentationList-small segmentationList-hover {{!word.hasStress() ? 'segmentationList-active' : ''}}" (click)="removeStress()">[{{switchLang('Unbetont')}}]</li>
+        </ul><br>
+
+        {{switchLang('Silbentrennung')}}:
+        <material-input multiline
+                        (keyup)="hyphenationChanged()"
+                        autoFocus floatingLabel style="width:80%"
+                        [(ngModel)]="hyphenationText">
+        </material-input><br>
+        ({{switchLang('Silben mit "-" trennen')}})<br>
+        <br>
+        <material-button raised
+                         (trigger)="applySameWords()">
+            {{switchLang('Gleiche Wörter übernehmen')}}
+        </material-button><br>
+        <br>
+        {{switchLang('Wortart')}}: <strong>{{word.posName()}}</strong><br>
+        Lemma: <strong>{{word.lemma}}</strong><br>
+
+        <div *ngIf="textAnalysisService.found['definition'] != null">
+            <strong>Definition</strong>: <br> {{textAnalysisService.found["definition"]}}<br>
+            <strong>Synonyms</strong>: <br> {{textAnalysisService.found["synonyms"]}}<br>
+            <h6>(<strong>Source</strong>: Princeton University <a href="https://wordnet.princeton.edu">WordNet.</a> 2010)</h6>
+        </div>
+        <div *ngIf="textAnalysisService.found['sound'] != null">
+            <strong>{{switchLang('Aussprache hören')}}</strong>: <br>
+            <audio src="{{textAnalysisService.found['sound']}}" controls></audio>
+        </div>
+
+    </div>
+</div>

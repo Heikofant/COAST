@@ -1,0 +1,13 @@
+<h2>{{switchLang('Konto löschen')}}</h2>
+
+<div class="bordered">
+    <form>
+        <material-input label="Password" type="password" floatingLabel style="width:80%"
+                        [(ngModel)]="passwordText">
+        </material-input><br>
+        <material-button raised
+                         (trigger)="deleteUser()">
+            {{switchLang('Löschen')}}
+        </material-button>
+    </form>
+</div>

@@ -1,0 +1,47 @@
+<div class="container" *ngIf="busyAdding">
+    <h2>{{switchLang('Manuelle Analyse')}}</h2>
+    <material-spinner ></material-spinner><br>
+    {{switchLang('Wort hinzufügen')}}...
+</div>
+
+<div *ngIf="!busyAdding && word != null" class="container">
+    <div class="row bordered">
+        <div class="col">
+            <h2>{{switchLang('Manuelle Analyse')}}: {{word.text}}</h2>
+
+            <div *ngIf="numWordsLeft() > 0">
+                <span *ngIf="previousWord != null">
+                    <a href="javascript:void(0);" (click)="gotoWord(previousWord)">&lt;&lt; {{previousWord.text}} </a> |
+                </span>
+
+                {{switchLang('Noch')}} {{numWordsLeft()}} {{switchLang('unbekannte Wörter zu klären')}}
+
+                <span *ngIf="nextWord != null">
+                | <a href="javascript:void(0);" (click)="gotoWord(nextWord)"> {{nextWord.text}} &gt;&gt;</a>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <segmentation-selection [loadingProposals]="loadingProposals"
+                            [word]="word"
+                            [segmentations]="segmentations">
+    </segmentation-selection>
+
+    <div class="row bordered">
+        <material-button raised *ngIf="!loadingProposals"
+                         (trigger)="nextWordClicked()">
+            {{switchLang('Speichern')}}
+        </material-button>
+
+        <material-button raised *ngIf="!loadingProposals"
+                         (trigger)="ignoreClicked()">
+            {{switchLang('Ignorieren')}}
+        </material-button>
+
+        <material-button raised
+                         (trigger)="doneButtonClicked()">
+            {{switchLang('Zurück zum Text')}}
+        </material-button>
+    </div>
+</div>

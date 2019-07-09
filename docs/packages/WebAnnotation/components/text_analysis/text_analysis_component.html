@@ -1,0 +1,42 @@
+<!--
+    new text input
+ -->
+<div class="container" *ngIf="!textAnalysisService.analyzing && textAnalysisService.annotatedText == null">
+    <h1>{{switchLang('Text Analyse')}}</h1>
+
+    {{switchLang('Bitte geben Sie einen Text ein.')}}<br>
+
+    <text-input></text-input>
+</div>
+
+<!--
+    analysing progress
+ -->
+<div class="container" *ngIf="textAnalysisService.analyzing">
+    <h1>{{switchLang('Text Analyse')}}</h1>
+    <material-spinner ></material-spinner><br>
+    {{switchLang('Analysiere')}}...
+</div>
+
+<!--
+    analysed text view with settings
+ -->
+<div class="container textPreview" *ngIf="!textAnalysisService.analyzing && textAnalysisService.annotatedText != null">
+    <div class="row textPreview">
+        <div class="col-md-4">
+            <text-settings></text-settings>
+        </div>
+
+        <div class="col-md textPreview">
+            <text-preview></text-preview>
+            <br>
+
+            <text-input></text-input>
+            <br>
+
+            <text-lookup></text-lookup>
+        </div>
+    </div>
+</div>
+
+

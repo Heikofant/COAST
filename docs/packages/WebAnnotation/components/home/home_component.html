@@ -1,0 +1,60 @@
+<div class="container">
+    <div style="text-align: center">
+        <h1>{{switchLang('Prosodiya Online Text Analyse')}}</h1>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="bordered">
+
+            <h2>{{switchLang('Aufbereitung von Texten zur LRS Therapie')}}</h2>
+            <p>
+                {{switchLang('Die Online Text Analyse wurde im Rahmen einer Masterarbeit entwickelt und im Rahmen einer Bachelorarbeit an der Universität Tübingen weiterentwickelt. Die App gibt die Möglichkeit beliebige Texte zu analysieren und aufzubereiten.')}} <br>
+                {{switchLang('Die ursprüngliche Zielsetzung war dabei Silben und Betonungsmuster in Wörtern farblich hervorzuheben. So bearbeitete Texte werden von Lerntherapeuten für die Therapie von Lese-Rechtschreibschwäche (LRS) eingesetzt. Durch die Trennung und Hervorhebung einzelner Silben kann der Sprachrhythmus im Text besser wahrgenommen werden, somit wird das Textverständnis verbessert.')}} <br>
+                {{switchLang('Die App soll das Erstellen dieser Lerntexte vereinfachen. Im Vergleich einer manuellen Generierung der Texte, zum Beispiel mit einem Textverarbeitungsprogramm, geschieht das meiste automatisch. Bei Unklarheiten (z.B. unbekannte Wörter) wird der Nutzer durch eine übersichtliche Benutzerschnittstelle geleitet, um diese zu beseitigen. Durch die Verwendung von Nutzerkonten können Texte auch gespeichert werden, außerdem kann die globale Wort Datenbank erweitert werden.')}}
+            </p>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="bordered">
+
+                <h2>{{switchLang('Textanalyse')}}</h2>
+                <p>
+                    {{switchLang('Zur Analyse kann einfach ein eigener Text eingegeben oder kopiert werden. Nachdem der Text analysiert wurde können unbekannte Wörter geklärt und die Anzeigeeinstellungen angepasst werden. Es stehen außerdem Funktionen zum Drucken oder Kopieren (Weiterverwendung in Textverarbeitungsprogramm) zur Verfügung.')}}<br>
+                    <br>
+
+                   Zur <a [routerLink]="['TextAnalysis']">{{switchLang('Textanalyse')}}</a>
+                </p>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="col-md-4">
+            <div class="bordered">
+                <h2>{{switchLang('Nutzerkonto')}}</h2>
+                <p>
+                    {{switchLang('Zum effektiven Arbeiten mit der App wird ein Nutzerkonto benötigt. Dadurch lassen sich eigene Einträge für unbekannte Wörter erstellen sodass diese erkannt werden, wenn sie erneut vorkommen. Außerdem können verwendete Texte gespeichert und wiederverwendet werden.')}}<br>
+                    <br>
+                    <a [routerLink]="['UserAccount']">{{switchLang('Einloggen oder Konto erstellen')}}</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="bordered">
+                <h2>{{switchLang('Betonungsdatenbank')}}</h2>
+                <p>
+                    {{switchLang('Das Herzstück der Textanalyse ist eine Datenbank in der Betonungsmuster und andere Worteigenschaften gespeichert sind. Wegen des immensen Umfangs eines Sprachwortschatzes sind nicht alle Wörter und Wortbeugungen der deutschen Sprache enthalten.')}} <br>
+                    {{switchLang('Die Datenbank kann jedoch von allen Nutzern erweitert werden. Wird ein unbekanntes Wort bei der Textanalyse hinzugefügt steht es nur dem Benutzer zur Verfügung, der den Eintrag erstellt hat. Um es allen Nutzern bereitzustellen, muss es von mindestens zwei weiteren Nutzern bestätigt werden. Auf der Seite')}}
+                    <a [routerLink]="['WordVerification']">{{switchLang('Verifizierung')}}</a>
+                    {{switchLang('kann jeder Nutzer Wörter bestätigen oder Gegenvorschläge einbringen. So kann die Datenbank wachsen und mehr Wörter werden automatisch erkannt.')}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+

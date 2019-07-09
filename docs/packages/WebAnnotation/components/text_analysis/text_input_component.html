@@ -1,0 +1,41 @@
+<div class="bordered">
+    <h3>Text</h3>
+
+    <material-input multiline
+                    rows="{{numInputRows()}}"
+                    autoFocus floatingLabel style="width:100%"
+                    [(ngModel)]="textAnalysisService.lookupText">
+    </material-input>
+    <br>
+
+    <material-button raised
+                     (trigger)="lookup()">
+        {{switchLang('Neu analysieren')}}
+    </material-button>
+</div>
+<br>
+
+<div *ngIf="userAccountService.loggedIn && !textAnalysisService.analyzing && textAnalysisService.annotatedText != null" class="bordered">
+    <h3>{{switchLang('Text speichern')}}</h3>
+    {{switchLang('Speichere den aktuellen Text, er kann dann auf der Benutzer Seite aufgerufen und wiederverwendet werden')}}.
+    <material-input label="Titel"
+                    autoFocus floatingLabel style="width:100%"
+                    [(ngModel)]="textTitle">
+    </material-input>
+    <br>
+
+    <material-button raised
+                     (trigger)="saveText()">
+        {{switchLang('Speichern')}}
+    </material-button>
+</div>
+<br>
+
+<div class="bordered" *ngIf="!textAnalysisService.analyzing && textAnalysisService.annotatedText != null">
+    <h3>{{switchLang('Neu')}}</h3>
+    <material-button raised
+                     (trigger)="newText()">
+        {{switchLang('Neuen Text eingeben')}}
+    </material-button><br>
+    {{switchLang('Aktuelle Analyse verwerfen und neuen Text eingeben')}}.
+</div>

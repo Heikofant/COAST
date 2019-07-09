@@ -42,17 +42,4 @@ for e in entries:
 
 
 #remove duplicate entries from the same user
-
-duplicates =[]
-for w in words:
-    for w2 in words:
-        if w['id'] != w2['id'] and w['text'] == w2['text'] and w['hyphenation'] == w2['hyphenation'] and w['user_first_name'] == w2['user_first_name'] and w['user_last_name'] == w2['user_last_name']:
-            if not duplicates.__contains__(w['id']) and not duplicates.__contains__(w2['id']):
-                duplicates.append(w['id'])
-
-
-
-#for d in duplicates:
-#    print(d)
-#    userService.delete_word(d)
-#    verificationService.cleanup_proposals_by_id(d)
+userService.cleanup_duplicate_entries()

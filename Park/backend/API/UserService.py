@@ -446,4 +446,4 @@ class UserService:
             self.delete_word(d)
             verification_service.cleanup_proposals_by_id(d)
 
-       
+

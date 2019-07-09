@@ -24,7 +24,7 @@
         <div *ngIf="userAccountService.loggedIn">
             <ul class="navbar-nav ml-auto">
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">
-                    <img src="book.png" height="23"><span class="caret"></span></a>
+                    <img src="./book.png" height="23"><span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" [routerLink]="['UserText']">{{switchLang('Meine Texte')}}</a></li>
                     <li><a class="nav-link" [routerLink]="['UserWord']">{{switchLang('Meine Worte')}}</a></li>
@@ -32,8 +32,8 @@
                 </li>
             </ul>
         </div>
-        <button class="langpicker" (click)="Pger()" title="Deutsch"><img src="flags/germany.png" height="15"></button>
-        <button class="langpicker" (click)="Peng()" title="English"><img src="flags/britain.png" height="15"></button>
+        <button class="langpicker" (click)="Pger()" title="Deutsch"><img src="./flags/germany.png" height="15"></button>
+        <button class="langpicker" (click)="Peng()" title="English"><img src="./flags/britain.png" height="15"></button>
     </div>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">

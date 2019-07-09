@@ -432,7 +432,7 @@ class UserService:
 
         return user_list
 
-    def cleanup_duplicate_entries(self):
+    def cleanup_duplicate_entries(self, verification_service):
         words = self.list_all_words()
         duplicates = []
         for w in words:
@@ -443,5 +443,7 @@ class UserService:
                         duplicates.append(w['id'])
         for d in duplicates:
             print(d)
-        #    userService.delete_word(d)
-        #    verificationService.cleanup_proposals_by_id(d)
+            self.delete_word(d)
+            verification_service.cleanup_proposals_by_id(d)
+
+       

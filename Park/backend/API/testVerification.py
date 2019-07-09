@@ -42,4 +42,5 @@ for e in entries:
 
 
 #remove duplicate entries from the same user
-userService.cleanup_duplicate_entries()
+userService.cleanup_duplicate_entries(verification_service=verificationService)
+

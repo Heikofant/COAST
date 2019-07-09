@@ -160,6 +160,12 @@ def user_add_word():
     if not text or not stress_pattern or not hyphenation or not pos:
         return create_error_response(400, "Data not provided.")
 
+    # check if the word was already added to the database.
+    word = userService.get_word(user, DictionaryService.preprocess_entry(text), pos)
+
+    if word is not None:
+        return create_response(201)
+
     db_word = userService.add_word(user, text, pos, stress_pattern, hyphenation)
 
     if not db_word or db_word is None:

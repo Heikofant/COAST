@@ -109,7 +109,7 @@ class WordReviewComponent implements OnInit {
         .then((bool success) {
       if(success) {
         this.textAnalysisService.annotatedText.updateWord(word.text, hyphenation, stressPattern);
-
+        this.nextWord = textAnalysisService.annotatedText.nextMissingWord();
         gotoNextWord();
       } else {
         appService.errorMessage(switchLang("Fehler beim hinzufügen des Wortes zur lokalen Datenbank."));
@@ -120,19 +120,24 @@ class WordReviewComponent implements OnInit {
   }
 
   void gotoNextWord() {
+
+   // var words = userAccountService.userWords;
+
+
     if(nextWord != null) {
       gotoWord(nextWord);
     } else {
       // find first unknown word
       Word w = textAnalysisService.annotatedText.nextMissingWord();
-      if(w == null) {
+
+      // if no words need to be clarified or the word is already in the user database, go back.
+      if(w == null){// ||words.any((e) => e.text.toLowerCase() == w.text.toLowerCase() && w.posId == e.posId) ) {
         // no more unknown words, back to text
         router.navigate(['TextAnalysis']);
         appService.infoMessage(switchLang("Alle unbekannten Wörter wurden geklärt."));
 
         return;
       }
-
       gotoWord(w);
     }
   }
@@ -144,6 +149,7 @@ class WordReviewComponent implements OnInit {
   }
 
   void gotoWord(Word word) {
+    print(word.text);
     this.word = word;
     loadProposals();
   }

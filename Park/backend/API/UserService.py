@@ -246,7 +246,7 @@ class UserService:
         self.database.session.add(user_word)
         self.database.session.commit()
 
-        return True
+        return user_word
 
     def delete_word(self, word_id):
         n_id = int(word_id)

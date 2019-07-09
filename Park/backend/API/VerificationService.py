@@ -9,6 +9,8 @@ from UserService import UserService, User, UserWord
 
 DATABASE_PATH = 'sqlite:///../db/user.db'
 SCORE_GOAL = 3
+WEIGHT_EXPERT = 2
+WEIGHT_USER = 1
 
 from Database import Base as Base
 
@@ -67,8 +69,9 @@ class VerificationService:
 
         return None
 
-    def num_words(self):
-        num = self.database.session.query(UserWord).count()
+    def num_words(self, user):
+        num = self.database.session.query(UserWord)\
+                .filter(UserWord.user != user).count()
         return num
 
     def proposals_for_word(self, user_word):
@@ -91,10 +94,10 @@ class VerificationService:
             return False
 
         #  check all verification proposals for that UserWord
-        should_transfer = self.check_proposals(user_word, stress_pattern, hyphenation)
+        transer_into_global_db = self.check_proposals(user_word, stress_pattern, hyphenation)
 
         #  if condition matched (enough votes):
-        if should_transfer:
+        if transer_into_global_db:
             #  add word in global db
             if not self.transfer_to_global_db(user_word.text, dictionary_service, stress_pattern, hyphenation, user_word.pos):
                 print('error adding word in global db')
@@ -128,6 +131,7 @@ class VerificationService:
 
         for p in proposals:
             user = p.user
+            print("Proposal for {0} by {1}: {2},{3}".format(user_word.text, user.email, p.hyphenation, p.stress_pattern))
 
             # compare proposal in list to new proposal
             if p.stress_pattern != stress_pattern or p.hyphenation != hyphenation:
@@ -137,13 +141,12 @@ class VerificationService:
             if user.is_admin:
                 score += SCORE_GOAL # admin has full power
             elif user.is_expert:
-                score += 2
+                score += WEIGHT_EXPERT
             else:
-                score += 1
-        if score >= SCORE_GOAL:
-            return True
+                score += WEIGHT_USER
 
-        return False
+        print("Score for {0}: {1}".format(p.hyphenation, score))
+        return score >= SCORE_GOAL
 
     def transfer_to_global_db(self, text, dictionary_service, stress_pattern, hyphenation, pos):
         db_word = dictionary_service.add_word(text, stress_pattern, hyphenation, "", pos)

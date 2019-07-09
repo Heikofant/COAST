@@ -162,8 +162,14 @@ def user_add_word():
 
     db_word = userService.add_word(user, text, pos, stress_pattern, hyphenation)
 
-    if not db_word:
-        return create_error_response(404, "Error adding word.")
+    if not db_word or db_word is None:
+        return create_error_response(404, "Error adding word to local database.")
+
+    # print("word {0} added by {1}: {2},{3}".format(db_word.text, user.email, db_word.hyphenation, db_word.stress_pattern))
+
+    # also add the word as a proposal into verification services.
+    #if not verificationService.add_proposal(user,db_word, stress_pattern, hyphenation):
+    #    return create_error_response(404, "Error adding proposal to verfication service.")
 
     return create_response(201)
 
@@ -383,6 +389,7 @@ def query_verification():
     user = userService.authenticate(Authentication.read(request))
     if not user: return create_error_response(403, "Invalid credentials.")
 
+    # get the next from a different user that needs to be verified.
     user_word = verificationService.next_word(user)
 
     if user_word is None:
@@ -391,18 +398,22 @@ def query_verification():
     word = user_word.json()
     resp = {'word': word}
 
-    num_words = verificationService.num_words()
+    num_words = verificationService.num_words(user)
     if num_words is not None:
         resp['num_words'] = num_words
 
+    #print("get proposals for {0}".format(word))
     segmentations = []
 
+    # get proposals from other users and append them to the list of proposals.
     verification_proposals = verificationService.proposals_for_word(user_word)
     if verification_proposals is not None:
         for p in verification_proposals:
             s = Segmentation(word['text'], p.user.first_name + " " + p.user.last_name, "Benutzer", p.hyphenation, p.stress_pattern)
             segmentations.append(s.json())
+            #print("proposal {0} by {1}: {2},{3}".format(s.json(), p.user.email, p.hyphenation, p.stress_pattern))
 
+    # compute automatically generated proposals (i.e., MARY TTS and pyphen).
     segmentation_proposals = dictionaryService.query_segmentation(word['text'])
     segmentations = segmentations + segmentation_proposals
 
@@ -425,7 +436,7 @@ def query_verificationen():
     word = user_word.json()
     resp = {'word': word}
 
-    num_words = verificationService.num_words()
+    num_words = verificationService.num_words(user)
     if num_words is not None:
         resp['num_words'] = num_words
 

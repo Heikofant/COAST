@@ -109,14 +109,16 @@ a:active {
 
   .textPreview, my-app, text-analysis, text-preview {
     display: block;
+    background-color: white;
+
   }
 
   .annotationText {
     display: block;
     background-color: white;
     height: 100%;
-    width: 110%;
-    position: fixed;
+    width: 100%;
+    position: absolute; /*fixed;*/
     top: 0;
     left: 0;
     margin: 0;
@@ -124,7 +126,8 @@ a:active {
   }
 
   .print-text {
-    display: inline-block;
+    /*display: inline-block;*/
+    display:inline; /* use inline so line breaks are kept */
   }
 
   .notFound, .number {
@@ -132,3 +135,4 @@ a:active {
     text-decoration: none;
   }
 }
+

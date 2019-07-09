@@ -14,8 +14,8 @@ WEIGHT_USER = 1
 
 from Database import Base as Base
 
-class VerificationProposal(Base):
 
+class VerificationProposal(Base):
     __tablename__ = 'verification_proposal'
 
     id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True)
@@ -54,13 +54,13 @@ class VerificationService:
 
     def next_word(self, user):
         # exclude all words by user himself
-        words = self.database.session.query(UserWord)\
+        words = self.database.session.query(UserWord) \
             .filter(UserWord.user != user).all()
 
         # TODO maybe possible to do both queries in one (join)
         for w in words:
             # search for first word where no proposal from user exists
-            proposal = self.database.session.query(VerificationProposal)\
+            proposal = self.database.session.query(VerificationProposal) \
                 .filter(VerificationProposal.user_word == w).filter(VerificationProposal.user == user).first()
 
             if proposal is None:
@@ -70,13 +70,28 @@ class VerificationService:
         return None
 
     def num_words(self, user):
-        num = self.database.session.query(UserWord)\
-                .filter(UserWord.user != user).count()
+        # exclude all words by user himself
+        words = self.database.session.query(UserWord) \
+            .filter(UserWord.user != user).all()
+
+        unresolved = 0;
+        # TODO maybe possible to do both queries in one (join)
+        for w in words:
+            # search for first word where no proposal from user exists
+            proposal = self.database.session.query(VerificationProposal) \
+                .filter(VerificationProposal.user_word == w).filter(VerificationProposal.user == user).first()
+
+            if proposal is None:
+                unresolved += 1;
+        return unresolved;
+
+        num = self.database.session.query(UserWord) \
+            .filter(UserWord.user != user).count()
         return num
 
     def proposals_for_word(self, user_word):
         # get proposals for user_word
-        proposals = self.database.session.query(VerificationProposal)\
+        proposals = self.database.session.query(VerificationProposal) \
             .filter(VerificationProposal.user_word == user_word).all()
 
         return proposals
@@ -99,7 +114,8 @@ class VerificationService:
         #  if condition matched (enough votes):
         if transer_into_global_db:
             #  add word in global db
-            if not self.transfer_to_global_db(user_word.text, dictionary_service, stress_pattern, hyphenation, user_word.pos):
+            if not self.transfer_to_global_db(user_word.text, dictionary_service, stress_pattern, hyphenation,
+                                              user_word.pos):
                 print('error adding word in global db')
                 return False
 
@@ -111,7 +127,8 @@ class VerificationService:
         return True
 
     def add_proposal(self, user, user_word, stress_pattern, hyphenation):
-        proposal = VerificationProposal(stress_pattern=stress_pattern, hyphenation=hyphenation, user=user, user_word=user_word)
+        proposal = VerificationProposal(stress_pattern=stress_pattern, hyphenation=hyphenation, user=user,
+                                        user_word=user_word)
 
         try:
             self.database.session.add(proposal)
@@ -124,14 +141,15 @@ class VerificationService:
         return True
 
     def check_proposals(self, user_word, stress_pattern, hyphenation):
-        proposals = self.database.session.query(VerificationProposal)\
+        proposals = self.database.session.query(VerificationProposal) \
             .filter(VerificationProposal.user_word == user_word).all()
 
         score = 0
 
         for p in proposals:
             user = p.user
-            print("Proposal for {0} by {1}: {2},{3}".format(user_word.text, user.email, p.hyphenation, p.stress_pattern))
+            print(
+                "Proposal for {0} by {1}: {2},{3}".format(user_word.text, user.email, p.hyphenation, p.stress_pattern))
 
             # compare proposal in list to new proposal
             if p.stress_pattern != stress_pattern or p.hyphenation != hyphenation:
@@ -139,7 +157,7 @@ class VerificationService:
 
             # proposals match, raise score according to user group
             if user.is_admin:
-                score += SCORE_GOAL # admin has full power
+                score += SCORE_GOAL  # admin has full power
             elif user.is_expert:
                 score += WEIGHT_EXPERT
             else:
@@ -157,10 +175,14 @@ class VerificationService:
 
         return True
 
+    def cleanup_proposals_by_id(self, word_id):
+        user_word = self.database.session.query(UserWord).filter(UserWord.id == word_id).first()
+        self.cleanup_proposals(user_word)
+
     def cleanup_proposals(self, user_word):
         #  remove all proposals
         try:
-            self.database.session.query(VerificationProposal)\
+            self.database.session.query(VerificationProposal) \
                 .filter(VerificationProposal.user_word == user_word).delete()
             self.database.session.commit()
         except Exception as e:

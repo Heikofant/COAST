@@ -22,7 +22,7 @@ import 'package:WebAnnotation/components/text_analysis/text_lookup_component.dar
     formDirectives,
     WordDetailComponent
   ],
-  providers: const [],
+  providers: const []
 )
 class TextPreviewComponent implements OnInit {
   final AppService appService;
@@ -90,8 +90,19 @@ class TextPreviewComponent implements OnInit {
   
   void showPrint() {
     window.print();
+
   }
-  
+
+  void openReadingMode() {
+    var elem = querySelector("#textPreviewDiv");
+    elem.requestFullscreen();
+    /*var btn = querySelector("#openReadingModeButton");
+    btn.text = switchLang("Lesemodus beenden");
+    */
+
+  }
+
+
   void copyToClipboard() {
     var annotationText = querySelector("#annotationText");
     window.getSelection().selectAllChildren(annotationText);

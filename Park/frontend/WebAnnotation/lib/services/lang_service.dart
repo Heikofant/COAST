@@ -43,6 +43,8 @@ var dict = {
   'Der Text wurde erfolgreich analysiert und wird in der Vorschau hervorgehoben dargestellt. Sie können in der Vorschau jedes Wort bearbeiten, indem Sie darauf klicken.':'The text has been successfully parsed and will be highlighted in the preview. You can edit any word in the preview by clicking on it.',
   'Vorschau':'Preview',
   'Drucken':'Print',
+  'Lesemodus':'Reading Mode',
+  'Lesemodus beenden':'Exit Reading Mode',
   'Kopieren (Zwischenablage)':'Copy (Clipboard)',
   'Unbekannte Wörter klären':'Clarify unknown words',
   'oder direkt auf das Wort klicken':'or directly click on the word',

@@ -133,8 +133,8 @@ class UserAccountService {
     }
 
     this.queryingTexts = true;
-    final Duration delay = const Duration(milliseconds: 200);
-    await new Future.delayed(delay);
+    // final Duration delay = const Duration(milliseconds: 200);
+    // await new Future.delayed(delay);
 
     return UserText.query(credentials()).then((textList) {
       this.queryingTexts = false;
@@ -210,8 +210,8 @@ class UserAccountService {
     }
 
     this.queryingConfigurations = true;
-    final Duration delay = const Duration(milliseconds: 400);
-    await new Future.delayed(delay);
+    //final Duration delay = const Duration(milliseconds: 400);
+    //await new Future.delayed(delay);
 
     return TextConfiguration.queryTextConfigurations(credentials()).then((configurations) {
       this.queryingConfigurations = false;

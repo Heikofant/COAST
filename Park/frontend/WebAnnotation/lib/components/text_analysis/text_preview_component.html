@@ -1,4 +1,4 @@
-<div class="bordered textPreview">
+<div class="bordered textPreview" id="textPreviewDiv">
     <h2>{{switchLang('Vorschau')}}</h2>
 
     <div id="annotationText" class="annotationText" [ngStyle]="annotatedText().styles">
@@ -28,6 +28,13 @@
                          (trigger)="copyToClipboard()">
             {{switchLang('Kopieren (Zwischenablage)')}}
         </material-button>
+        <!--
+        <material-button id="openReadingModeButton" raised
+                         (trigger)="openReadingMode()">
+            {{switchLang('Lesemodus')}}
+        </material-button>
+        -->
+
     </div>
 
     <div *ngIf="hasUnknownWords()">

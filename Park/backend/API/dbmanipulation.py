@@ -21,8 +21,11 @@ def replace_kk_ck():
 
     for word in words:
         old_hyphenation = word.hyphenation
-        updated_hyphenation = old_hyphenation.replace('k-k', '-ck')
-        word.hyphenation = updated_hyphenation
+        if "k-k" in old_hyphenation:
+            updated_hyphenation = old_hyphenation.replace('k-k', '-ck')
+            word.hyphenation = updated_hyphenation
+            #print(updated_hyphenation)
+
 
     wordsDatabase.session.commit()
 
@@ -33,5 +36,6 @@ def print_ck_hyphenation():
         print(word.text, ':', word.hyphenation, '-', word.pos)
 
 # TEST
+replace_kk_ck()
 #print_hyphenation('hacken')
-#print_ck_hyphenation()
+print_ck_hyphenation()

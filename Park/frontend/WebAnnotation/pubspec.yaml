@@ -1,8 +1,8 @@
 name: WebAnnotation
 description: A web app that uses AngularDart Components
 version: 0.0.1
-#homepage: https://www.example.com
-#author: oliver <email@example.com>
+#homepage: icall-research.com
+#author: Universität Tübingen <heiko.holz@uni-tuebingen.de>
 
 environment:
   sdk: '>=1.24.0 <2.0.0'
@@ -23,10 +23,11 @@ transformers:
 - angular:
     entry_points:
       - web/main.dart
-      - test/**_test.dart
-- test/pub_serve:
-    $include: test/**_test.dart
+      #- test/**_test.dart
+#- test/pub_serve:
+#    $include: test/**_test.dart
 - dart_to_js_script_rewriter
+
 
 # Uncomment the following in sdk 1.24+ to make pub serve
 # use dartdevc (webdev.dartlang.org/tools/dartdevc).

@@ -102,6 +102,14 @@ a:active {
   background-color: indianred;
 }
 
+ #button_german{
+    background: url(../assets/img/flags/germany.png) no-repeat;
+  }
+  #button_english{
+    background: url(../assets/img/flags/britain.png) no-repeat;
+
+  }
+
 @media print {
   body *, .navbar {
     display: none;
@@ -134,5 +142,7 @@ a:active {
     background-color: white;
     text-decoration: none;
   }
+
+ 
 }
 

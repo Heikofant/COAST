@@ -21,6 +21,7 @@ import 'package:WebAnnotation/components/word_verification/word_verification_com
 import 'package:WebAnnotation/components/home/home_component.dart';
 import 'package:WebAnnotation/components/user_account/user_register_component.dart';
 import 'package:WebAnnotation/app_service.dart';
+import  'dart:io';
 
 // AngularDart info: https://webdev.dartlang.org/angular
 // Components info: https://webdev.dartlang.org/components
@@ -126,4 +127,7 @@ class AppComponent implements OnInit {
     return langService.switchLang(s);
   }
 
+  String getAssetsPath(){
+    return document.window.localStorage['assetpath'];
+  }
 }

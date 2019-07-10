@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="styles/slider.css">
     <link rel="stylesheet" href="styles/popup.css">
 
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" href="favicon.png" ,="" id="favicon">
 
     <script>
         // WARNING: DO NOT set the <base href> like this in production!
@@ -29,9 +29,11 @@
 
             // save asset path
             window.localStorage.setItem("assetpath", document.location.href+"assets/");
+            var assetPath = window.localStorage.getItem("assetpath");
 
-            var assetPath = window.localStorage.getItem('assetpath');
-            console.log(assetPath);
+            // Set href of favicon.
+            document.getElementById("favicon").setAttribute("href",assetPath+"favicon.png");
+
         }());
     </script>
 

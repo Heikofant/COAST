@@ -62,12 +62,7 @@ class TextAnalysisComponent implements OnInit {
        if (!success) {
           print("WARNING: could not load text configurations");
         }
-       else{
-         if(!userAccountService.textConfigurations.isEmpty) {
-           this.textAnalysisService.selectedConfiguration = userAccountService.textConfigurations.first;
-           this.textAnalysisService.applyCurrentConfiguration();
-         }
-       }
+
       });
     }
   }

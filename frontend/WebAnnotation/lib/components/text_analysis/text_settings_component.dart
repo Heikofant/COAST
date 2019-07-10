@@ -60,6 +60,12 @@ class TextSettingsComponent implements OnInit, TextAnalysisObserver {
     textAnalysisService.addObserver(this);
 
     this.wordPOSSelected(wordPOSList()[0]);
+
+    // Set the first stored configuration of the user as default.
+    if(!userAccountService.textConfigurations.isEmpty) {
+      var conf = userAccountService.textConfigurations.first;
+      configurationSelected(conf);
+    }
   }
 
   List<PartOfSpeech> wordPOSList() {

@@ -13,6 +13,7 @@ from Database import Database
 
 from flask import Flask, request
 from flask import Response
+from waitress import serve
 
 DB_WORDS_PATH = 'sqlite:///../db/words.db'
 DB_WORDSEN_PATH = 'sqlite:///../db/wordsen.db'
@@ -28,6 +29,12 @@ dictionaryService = DictionaryService(wordsDatabase)
 dictionaryServiceen = DictionaryServiceen(wordsenDatabase)
 userService = UserService(userDatabase)
 verificationService = VerificationService(userDatabase)
+
+SECRET_KEY = b'\xffJ/,"\xa3\x85]\x19\x94\'\xed\xd6\x07\x1a\x96'
+ENVIRONMENT_DEV = "dev";
+ENVIRONMENT_PROD = "prod";
+
+
 
 def map_boolean(value):
     if value is True or value == 'True' or value == 'true' or value == 1:
@@ -640,15 +647,17 @@ def internal_error(exception):
 def print_help():
     print("Options:\n\t"
           "-p Port to use\n\t"
-          "-d debug mode")
+          "-d debug mode\n\t"
+          "-e environment (0 for dev and 1 for production")
 
 
 if __name__ == '__main__':
     port = 0
     debug = False
+    environment = 0;
 
     try:
-        options, args = getopt.getopt(sys.argv[1:], "p:d")
+        options, args = getopt.getopt(sys.argv[1:], "p:e:d")
     except getopt.GetoptError:
         print_help()
         sys.exit(1)
@@ -663,6 +672,8 @@ if __name__ == '__main__':
 
         elif opt == "-d":
             debug = True
+        elif opt == "-e":
+            environment = arg
 
         else:
             print("Unknown option " + opt)
@@ -679,5 +690,12 @@ if __name__ == '__main__':
     file_error_handler.setLevel(logging.ERROR)
     app.logger.addHandler(file_error_handler)
 
-    app.secret_key = "ljgq34jgqwihgq3poi" # TODO
-    app.run(debug=debug, port=port, host="0.0.0.0")
+    app.secret_key = SECRET_KEY # TODO
+
+    if environment == ENVIRONMENT_DEV:
+        print("running in development mode")
+        app.run(debug=debug, port=port, host="0.0.0.0")
+    elif environment == ENVIRONMENT_PROD:
+        print("serving in production mode!")
+        serve(app, port=port, host="0.0.0.0")
+

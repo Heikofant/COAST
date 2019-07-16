@@ -19104,7 +19104,7 @@ pH:function(a,b){var z=0,y=P.ai(),x,w=this,v
 var $async$pH=P.ah(function(c,d){if(c===1)return P.aj(d,y)
 while(true)switch(z){case 0:v=w.h_(0)
 v.am(0,b)
-x=W.bR("http://localhost:8000/user/configuration/update",v,null,null,null,null).bh(new T.QN(),new T.QO())
+x=W.bR("http://134.2.128.120:8000/user/configuration/update",v,null,null,null,null).bh(new T.QN(),new T.QO())
 z=1
 break
 case 1:return P.ak(x,y)}})
@@ -19113,7 +19113,7 @@ c6:function(a,b){var z=0,y=P.ai(),x,w=this,v
 var $async$c6=P.ah(function(c,d){if(c===1)return P.aj(d,y)
 while(true)switch(z){case 0:v=P.P(["id",J.a2(w.a)])
 v.am(0,b)
-x=W.bR("http://localhost:8000/user/configuration/delete",v,null,null,null,null).bh(new T.QJ(),new T.QK())
+x=W.bR("http://134.2.128.120:8000/user/configuration/delete",v,null,null,null,null).bh(new T.QJ(),new T.QK())
 z=1
 break
 case 1:return P.ak(x,y)}})
@@ -19121,7 +19121,7 @@ return P.al($async$c6,y)},
 E:{
 oC:function(a){var z=0,y=P.ai(),x
 var $async$oC=P.ah(function(b,c){if(b===1)return P.aj(c,y)
-while(true)switch(z){case 0:x=W.bR("http://localhost:8000/user/configuration/list",a,null,null,null,null).bh(new T.QL(),new T.QM())
+while(true)switch(z){case 0:x=W.bR("http://134.2.128.120:8000/user/configuration/list",a,null,null,null,null).bh(new T.QL(),new T.QM())
 z=1
 break
 case 1:return P.ak(x,y)}})
@@ -19130,7 +19130,7 @@ oB:function(a,b){var z=0,y=P.ai(),x,w
 var $async$oB=P.ah(function(c,d){if(c===1)return P.aj(d,y)
 while(true)switch(z){case 0:w=J.rz(a)
 w.am(0,b)
-x=W.bR("http://localhost:8000/user/configuration/add",w,null,null,null,null).bh(new T.QH(),new T.QI())
+x=W.bR("http://134.2.128.120:8000/user/configuration/add",w,null,null,null,null).bh(new T.QH(),new T.QI())
 z=1
 break
 case 1:return P.ak(x,y)}})
@@ -19177,7 +19177,7 @@ c6:function(a,b){var z=0,y=P.ai(),x,w=this,v
 var $async$c6=P.ah(function(c,d){if(c===1)return P.aj(d,y)
 while(true)switch(z){case 0:v=P.P(["id",J.a2(w.a)])
 v.am(0,b)
-x=W.bR("http://localhost:8000/user/word/delete",v,null,null,null,null).bh(new T.RB(),new T.RC())
+x=W.bR("http://134.2.128.120:8000/user/word/delete",v,null,null,null,null).bh(new T.RB(),new T.RC())
 z=1
 break
 case 1:return P.ak(x,y)}})
@@ -19187,14 +19187,14 @@ oI:function(a,b,c,d,e){var z=0,y=P.ai(),x,w
 var $async$oI=P.ah(function(f,g){if(f===1)return P.aj(g,y)
 while(true)switch(z){case 0:w=P.P(["text",a,"hyphenation",b,"pos",d,"stress_pattern",c])
 w.am(0,e)
-x=W.bR("http://localhost:8000/user/word/add",w,null,null,null,null).bh(new T.Rz(),new T.RA())
+x=W.bR("http://134.2.128.120:8000/user/word/add",w,null,null,null,null).bh(new T.Rz(),new T.RA())
 z=1
 break
 case 1:return P.ak(x,y)}})
 return P.al($async$oI,y)},
 oJ:function(a){var z=0,y=P.ai(),x
 var $async$oJ=P.ah(function(b,c){if(b===1)return P.aj(c,y)
-while(true)switch(z){case 0:x=W.bR("http://localhost:8000/user/word/list",a,null,null,null,null).bh(new T.RD(),new T.RE())
+while(true)switch(z){case 0:x=W.bR("http://134.2.128.120:8000/user/word/list",a,null,null,null,null).bh(new T.RD(),new T.RE())
 z=1
 break
 case 1:return P.ak(x,y)}})
@@ -19217,7 +19217,7 @@ c6:function(a,b){var z=0,y=P.ai(),x,w=this,v
 var $async$c6=P.ah(function(c,d){if(c===1)return P.aj(d,y)
 while(true)switch(z){case 0:v=P.P(["id",J.a2(w.a)])
 v.am(0,b)
-x=W.bR("http://localhost:8000/user/text/delete",v,null,null,null,null).bh(new N.RJ(),new N.RK())
+x=W.bR("http://134.2.128.120:8000/user/text/delete",v,null,null,null,null).bh(new N.RJ(),new N.RK())
 z=1
 break
 case 1:return P.ak(x,y)}})
@@ -19225,7 +19225,7 @@ return P.al($async$c6,y)},
 E:{
 oM:function(a){var z=0,y=P.ai(),x
 var $async$oM=P.ah(function(b,c){if(b===1)return P.aj(c,y)
-while(true)switch(z){case 0:x=W.bR("http://localhost:8000/user/text/list",a,null,null,null,null).bh(new N.RL(),new N.RM())
+while(true)switch(z){case 0:x=W.bR("http://134.2.128.120:8000/user/text/list",a,null,null,null,null).bh(new N.RL(),new N.RM())
 z=1
 break
 case 1:return P.ak(x,y)}})
@@ -19234,7 +19234,7 @@ oL:function(a,b,c){var z=0,y=P.ai(),x,w
 var $async$oL=P.ah(function(d,e){if(d===1)return P.aj(e,y)
 while(true)switch(z){case 0:w=P.P(["title",a,"text",b])
 w.am(0,c)
-x=W.bR("http://localhost:8000/user/text/add",w,null,null,null,null).bh(new N.RH(),new N.RI())
+x=W.bR("http://134.2.128.120:8000/user/text/add",w,null,null,null,null).bh(new N.RH(),new N.RI())
 z=1
 break
 case 1:return P.ak(x,y)}})
@@ -19261,7 +19261,7 @@ if(v==null){P.bB("ERROR: set wordText first")
 x=!1
 z=1
 break}w.a=[]
-x=W.Kj($.bo?C.h.U("http://localhost:8000/query/segmentationen/",v):C.h.U("http://localhost:8000/query/segmentation/",v),null,null).T(new E.PA(w)).j2(new E.PB())
+x=W.Kj($.bo?C.h.U("http://134.2.128.120:8000/query/segmentationen/",v):C.h.U("http://134.2.128.120:8000/query/segmentation/",v),null,null).T(new E.PA(w)).j2(new E.PB())
 z=1
 break
 case 1:return P.ak(x,y)}})
@@ -19307,7 +19307,7 @@ if(v==null){P.bB("ERROR: set userData first")
 x=!1
 z=1
 break}w.a=[]
-x=W.bR($.bo?"http://localhost:8000/user/verificationen/query":"http://localhost:8000/user/verification/query",v,null,null,null,null).bh(new G.PD(w),new G.PE())
+x=W.bR($.bo?"http://134.2.128.120:8000/user/verificationen/query":"http://134.2.128.120:8000/user/verification/query",v,null,null,null,null).bh(new G.PD(w),new G.PE())
 z=1
 break
 case 1:return P.ak(x,y)}})
@@ -19316,7 +19316,7 @@ ms:function(a,b){var z=0,y=P.ai(),x,w=this,v
 var $async$ms=P.ah(function(c,d){if(c===1)return P.aj(d,y)
 while(true)switch(z){case 0:v=P.P(["id",C.n.D(w.f),"word",b.a,"stress_pattern",b.q_(),"hyphenation",b.mk(),"lemma",b.e])
 v.am(0,a)
-x=W.bR($.bo?"http://localhost:8000/user/verificationen/submit":"http://localhost:8000/user/verification/submit",v,null,null,null,null).bh(new G.PF(),new G.PG())
+x=W.bR($.bo?"http://134.2.128.120:8000/user/verificationen/submit":"http://134.2.128.120:8000/user/verification/submit",v,null,null,null,null).bh(new G.PF(),new G.PG())
 z=1
 break
 case 1:return P.ak(x,y)}})
@@ -19370,7 +19370,7 @@ a3P:{"^":"b:1;",
 $0:[function(){return new G.jD(null,-1,null,-1,[],null)},null,null,0,0,null,"call"]}}],["","",,Z,{"^":"",bU:{"^":"c;a,b,hC:c<,i1:d@,bx:e<,b2:f@,cb:r<",
 f8:[function(a){var z=0,y=P.ai(),x,w=this,v
 var $async$f8=P.ah(function(b,c){if(b===1)return P.aj(c,y)
-while(true)switch(z){case 0:v=$.bo?"http://localhost:8000/query/texten":"http://localhost:8000/query/text"
+while(true)switch(z){case 0:v=$.bo?"http://134.2.128.120:8000/query/texten":"http://134.2.128.120:8000/query/text"
 J.mX(a,"text",w.d)
 w.c=!0
 x=W.bR(v,a,null,null,null,null).bh(new Z.QF(w),new Z.QG(w))
@@ -19391,7 +19391,7 @@ u=J.L(v)
 if(!u.a1(v,a)&&J.u(u.gcm(v),x.gcm(a))){v.siF([])
 for(u=a.giF(),t=u.length,s=0;s<u.length;u.length===t||(0,H.am)(u),++s){r=u[s]
 v.nN(J.b2(r),r.gd8())}v.m9(this.f)}}},
-ld:function(a,b,c){var z=$.bo?"http://localhost:8000/query/defen":"http://localhost:8000/query/def"
+ld:function(a,b,c){var z=$.bo?"http://134.2.128.120:8000/query/defen":"http://134.2.128.120:8000/query/def"
 return W.bR(z,P.P(["text",a,"lemma",b,"pos",c]),null,null,null,null).bh(new Z.QD(this),new Z.QE())},
 nT:function(){return this.e.$0()},
 aM:function(){return this.f.$0()}},QF:{"^":"b:0;a",
@@ -19459,21 +19459,21 @@ $1:[function(a){return new Z.bU(a,[],!1,"",null,new T.fC(-1,"","#0000A0","#FF000
 o4:function(a){return P.P(["email",this.a,"password",this.b])},
 pq:[function(a,b,c,d,e,f){var z=0,y=P.ai(),x
 var $async$pq=P.ah(function(g,h){if(g===1)return P.aj(h,y)
-while(true)switch(z){case 0:x=W.bR("http://localhost:8000/user/register",P.P(["email",b,"password",c,"first_name",d,"last_name",e,"is_expert",J.a2(f)]),null,null,null,null).bh(new Z.Rw(),new Z.Rx())
+while(true)switch(z){case 0:x=W.bR("http://134.2.128.120:8000/user/register",P.P(["email",b,"password",c,"first_name",d,"last_name",e,"is_expert",J.a2(f)]),null,null,null,null).bh(new Z.Rw(),new Z.Rx())
 z=1
 break
 case 1:return P.ak(x,y)}})
 return P.al($async$pq,y)},"$5","gfe",10,0,196,72,46,77,78,79],
 o7:[function(a){var z=0,y=P.ai(),x,w=this
 var $async$o7=P.ah(function(b,c){if(b===1)return P.aj(c,y)
-while(true)switch(z){case 0:x=W.bR("http://localhost:8000/user/delete",P.P(["email",w.a,"password",a]),null,null,null,null).bh(new Z.Ro(w),new Z.Rp())
+while(true)switch(z){case 0:x=W.bR("http://134.2.128.120:8000/user/delete",P.P(["email",w.a,"password",a]),null,null,null,null).bh(new Z.Ro(w),new Z.Rp())
 z=1
 break
 case 1:return P.ak(x,y)}})
 return P.al($async$o7,y)},"$1","guF",2,0,194,46],
 oK:[function(a,b){var z=0,y=P.ai(),x,w=this
 var $async$oK=P.ah(function(c,d){if(c===1)return P.aj(d,y)
-while(true)switch(z){case 0:x=W.bR("http://localhost:8000/user/authenticate",P.P(["email",a,"password",b]),null,null,null,null).bh(new Z.Rr(w,a,b),new Z.Rs(w))
+while(true)switch(z){case 0:x=W.bR("http://134.2.128.120:8000/user/authenticate",P.P(["email",a,"password",b]),null,null,null,null).bh(new Z.Rr(w,a,b),new Z.Rs(w))
 z=1
 break
 case 1:return P.ak(x,y)}})

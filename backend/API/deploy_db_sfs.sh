@@ -1,1 +1,1 @@
-scp -i ../db/* hholz@sifnos.sfs.uni-tuebingen.de:/home/hholz/projects/coast/backend/db
+scp -i ../db/* hholz@sifnos.sfs.uni-tuebingen.de:/var/web/coast-backend/db

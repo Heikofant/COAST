@@ -648,7 +648,7 @@ def print_help():
     print("Options:\n\t"
           "-p Port to use\n\t"
           "-d debug mode\n\t"
-          "-e environment (0 for dev and 1 for production")
+          "-e environment ('dev' for dev and 'prod' for production")
 
 
 if __name__ == '__main__':

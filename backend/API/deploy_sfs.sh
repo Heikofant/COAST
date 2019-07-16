@@ -1,1 +1,1 @@
-scp -i debug.sh dbmanipulation.py testVerification.py VerificationService.py Database.py LinguisticTextAnnotation.py DictionaryService.py UserService.py textToSpeech.py DefinitionService.py launch.sh hholz@sifnos.sfs.uni-tuebingen.de:/home/hholz/projects/coast/backend/api
+scp -i debug.sh dbmanipulation.py testVerification.py VerificationService.py Database.py LinguisticTextAnnotation.py DictionaryService.py UserService.py textToSpeech.py DefinitionService.py launch.sh hholz@sifnos.sfs.uni-tuebingen.de:/var/web/coast-backend/api

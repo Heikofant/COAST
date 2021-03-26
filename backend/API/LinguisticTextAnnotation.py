@@ -654,7 +654,7 @@ def print_help():
 if __name__ == '__main__':
     port = 0
     debug = False
-    environment = 0;
+    environment = ENVIRONMENT_PROD;
 
     try:
         options, args = getopt.getopt(sys.argv[1:], "p:e:d")

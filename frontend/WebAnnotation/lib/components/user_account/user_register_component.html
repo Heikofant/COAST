@@ -5,7 +5,7 @@
         <form>
             <h3>{{switchLang('Konto')}}</h3>
             <material-input #emailInput label="Email" type="email"
-                            autoFocus floatingLabel style="width:80%"
+                             floatingLabel style="width:80%"
                             [(ngModel)]="emailText" (blur)="validateEmail()">
             </material-input><br>
             <material-input #passwordInput label="Password" type="password" displayBottomPanel
@@ -21,7 +21,7 @@
             <h3>{{switchLang('Informationen')}}</h3>
             {{switchLang('Vor- und Nachname werden bei der Verifizierung angezeigt, wenn Sie einen Vorschlag abschicken')}}.<br>
             <material-input #firstNameInput label="{{switchLang('Vorname')}}"
-                            autoFocus floatingLabel style="width:80%"
+                             floatingLabel style="width:80%"
                             [(ngModel)]="firstNameText" (blur)="validateFirstName()">
             </material-input><br>
             <material-input #lastNameInput label="{{switchLang('Nachname')}}" floatingLabel style="width:80%"

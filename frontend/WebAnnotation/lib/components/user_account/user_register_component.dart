@@ -119,7 +119,7 @@ class UserRegisterComponent implements OnInit {
     appService.clearMessage();
 
     if(!validate()) {
-      appService.errorMessage(switchLang("Bitte machen ergängzen Sie fehlende Angaben."));
+      appService.errorMessage(switchLang("Bitte ergängzen Sie fehlende Angaben."));
 
       return;
     }

@@ -1,22 +1,22 @@
 <nav id="navigation" class="navbar navbar-expand-lg navbar-default fixed-top bg-s-light">
-    <a class="navbar-brand c-p" [routerLink]="['Home']">Home</a>
+    <a class="navbar-brand c-p" [routerLink]="['Home']" (click)="appService.clearMessage()">Home</a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="nav navbar-nav">
-            <a class="nav-link" [routerLink]="['TextAnalysis']">{{switchLang('TextAnalyse')}}</a>
-            <a class="nav-link" [routerLink]="['WordVerification']">{{switchLang('Verifizierung')}}</a>
+            <a class="nav-link" [routerLink]="['TextAnalysis']" (click)="appService.clearMessage()">{{switchLang('TextAnalyse')}}</a>
+            <a class="nav-link" [routerLink]="['WordVerification']" (click)="appService.clearMessage()">{{switchLang('Verifizierung')}}</a>
         </div>
     </div>
 
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
-        <li class="dropdown"><a class="nav-link" [routerLink]="['UserAccount']"><span class="glyphicon glyphicon-user" ></span>
+        <li class="dropdown"><a class="nav-link" [routerLink]="['UserAccount']" (click)="appService.clearMessage()"><span class="glyphicon glyphicon-user" ></span>
             {{userText()}}</a>
         </li>
         </ul>
         <div *ngIf="!userAccountService.loggedIn">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" [routerLink]="['UserRegister']"><span class="glyphicon glyphicon-user" ></span>
+                <li class="nav-item"><a class="nav-link" [routerLink]="['UserRegister']" (click)="appService.clearMessage()"><span class="glyphicon glyphicon-user" ></span>
                     Signup</a>
                 </li>
             </ul>

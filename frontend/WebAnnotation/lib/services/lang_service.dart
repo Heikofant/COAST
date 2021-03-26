@@ -62,7 +62,7 @@ var dict = {
   'Wortabstand':'Word distance',
   'Zeilenabstand':'Line spacing',
   'Zeichenabstand':'Letter distance',
-  'Silbentrennzeichen':'Hyphenation letter',
+  'Silbentrennzeichen':'Hyphenation character',
   'Wortart':'Part of speech',
   'Vorlagen':'Template',
   'Klicke auf eine Vorlage in der Liste um sie auf den aktuellen Text anzuwenden':'Click on a template in the list to apply it to the current text',

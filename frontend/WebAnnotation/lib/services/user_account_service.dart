@@ -53,6 +53,7 @@ class UserAccountService {
     return HttpRequest.postFormData(url, data).then((request) {
       return true;
     }, onError: (error) {
+      window.console.error('Registration failed: ');
       return false;
     });
   }

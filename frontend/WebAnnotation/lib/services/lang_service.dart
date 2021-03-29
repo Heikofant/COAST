@@ -9,7 +9,7 @@ var dict = {
   'Aufbereitung von Texten zur LRS Therapie':'Preparation of texts for LRS therapy',
   'Textanalyse':'Textanalysis',
   'Nutzerkonto':'User account',
-  'Betonungsdatenbank':'Emphasis database',
+  'Betonungsdatenbank':'Linguistic database',
   'Einloggen oder Konto erstellen':'Log in or create an account',
   'Die Online Text Analyse wurde im Rahmen einer Masterarbeit entwickelt und im Rahmen einer Bachelorarbeit an der Universität Tübingen weiterentwickelt. Die App gibt die Möglichkeit beliebige Texte zu analysieren und aufzubereiten.':'The online text analysis was developed as part of a master thesis and further developed as part of bachelor thesis at the University of Tübingen. This App gives you the opportunity to analyze and edit any text.',
   'Die ursprüngliche Zielsetzung war dabei Silben und Betonungsmuster in Wörtern farblich hervorzuheben. So bearbeitete Texte werden von Lerntherapeuten für die Therapie von Lese-Rechtschreibschwäche (LRS) eingesetzt. Durch die Trennung und Hervorhebung einzelner Silben kann der Sprachrhythmus im Text besser wahrgenommen werden, somit wird das Textverständnis verbessert.':'The original goal was to emphasize syllables and stress patterns in words in color. So edited texts are used by learning therapists for the treatment of reading-spelling disorders. By separating and highlighting individual syllables, the linguistic rhythm in the text can be better perceived, thus the understanding of the text would be improved.',

@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:html';
 import 'package:WebAnnotation/components/text_analysis/text_lookup_component.dart';
-import 'package:WebAnnotation/model/text_annotation/Word.dart';
 import 'package:angular/angular.dart';
 import 'package:angular_components/angular_components.dart';
 import 'package:angular_forms/angular_forms.dart';
@@ -10,7 +9,6 @@ import 'package:WebAnnotation/services/lang_service.dart' as langService;
 import 'package:WebAnnotation/app_service.dart';
 import 'package:WebAnnotation/services/text_analysis_service.dart';
 import 'package:WebAnnotation/services/user_account_service.dart';
-import 'package:WebAnnotation/model/text_annotation/AnnotationText.dart';
 import 'package:WebAnnotation/components/text_analysis/text_preview_component.dart';
 import 'package:WebAnnotation/components/text_analysis/text_settings_component.dart';
 import 'package:WebAnnotation/components/text_analysis/text_input_component.dart';
